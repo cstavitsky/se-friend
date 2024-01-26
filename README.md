@@ -1,3 +1,19 @@
+## What is this?
+
+I wanted to see if we could automate some simple minor tasks for the SE team that are annoying but not problematic enough to spend significant resources on. For example, it would be nice for no SE to have to remember the key/value pairs of query parameters to pass in during a demo.
+
+I generated this chrome extension scaffolding with ChatGPT, and then made some changes myself. The original prompt was:
+
+>Write a chrome extension using react for the ui component. The extension should modify the url in a browser and, if a text field labeled "SE" is filled in with a string,  append a query parameter to the URL with key 'se' and value equal to that string.
+>There should also be a set of radio buttons available; if the first radio button, labeled "FE+BE slowdown" is selected, do nothing. If the second radio button, labeled "Frontend Only Slowdown" is selected, append a query parameter to the URL with key "frontendSlowdown" and value "true".
+>There should also be another set of radio buttons available.  For each of the following, add a radio button: ['flask', 'express', 'springboot', 'aspnetcore', 'laravel', 'ruby', 'rails']. If that radio button is selected, add a query parameter to the url where key is "backend" and value is the value of the radio button.
+
+I had to prompt it to work with localstorage:
+
+>Instead of clicking a button to update the URL, please have the Popup component store the value from each setting (any text fields, radio buttons, checkboxes) in localstorage and applied automatically to each url when the page loads.
+
+There might have been some minor tweaks.
+
 ## Running it Locally
 
 clone repo, and `cd` into it
