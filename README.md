@@ -2,6 +2,10 @@
 
 A ChatGPT-generated chrome extension that remembers key/value pairs for query parameters used in the Sentry SE team's [demo app](https://application-monitoring-react-dot-sales-engineering-sf.appspot.com/).
 
+## Why?
+
+I wanted to see if we could automate some simple minor tasks for the SE team that are annoying but not problematic enough to spend significant resources on. For example, it would be nice for no SE to have to remember all the correct key/value pairs of query parameters to pass in during a demo -- you should be able to select options visually.
+
 ### Before
 ![Screenshot 2024-01-26 at 2 33 09 PM](https://github.com/cstavitsky/se-friend/assets/12092849/52929c42-009a-410f-8b59-2e1f95d43f7b)
 
@@ -25,10 +29,6 @@ $ npm run build
 4. Pin the extension to your toolbar
 5. Navigate to the [demo app](https://application-monitoring-react-dot-sales-engineering-sf.appspot.com/)
 6. Click the extension icon in your toolbar and select whatever values
-
-## Why?
-
-I wanted to see if we could automate some simple minor tasks for the SE team that are annoying but not problematic enough to spend significant resources on. For example, it would be nice for no SE to have to remember all the correct key/value pairs of query parameters to pass in during a demo -- you should be able to select options visually.
 
 ## How?
 I generated this chrome extension scaffolding with ChatGPT, and then made some changes myself. The original prompt was:
