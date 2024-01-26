@@ -2,25 +2,29 @@
 import React, { useState, useEffect } from "react";
 import "./Popup.css";
 
+const EMPOWER_PLANT_URL =
+  "https://application-monitoring-react-dot-sales-engineering-sf.appspot.com/";
+
 const Popup = () => {
   const [salesEngineer, setSalesEngineer] = useState("");
   const [slowdownOption, setSlowdownOption] = useState(false);
   const [backendOption, setBackendOption] = useState("flask");
 
-  const updateUrl = () => {
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-      const tabId = tabs[0].id;
-      chrome.tabs.sendMessage(tabId, {
-        type: "updateUrl",
-        salesEngineer,
-        slowdownOption,
-        backendOption,
-      });
+  const updateUrl = (tabId) => {
+    chrome.tabs.sendMessage(tabId, {
+      type: "updateUrl",
+      salesEngineer,
+      slowdownOption,
+      backendOption,
     });
   };
 
   useEffect(() => {
-    updateUrl();
+    chrome.tabs.query({ active: true, lastFocusedWindow: true }, (tabs) => {
+      let url = tabs[0].url;
+      const tabId = tabs[0].id;
+      if (url.includes(EMPOWER_PLANT_URL)) updateUrl(tabId);
+    });
   }, [salesEngineer, slowdownOption, backendOption]);
 
   return (
