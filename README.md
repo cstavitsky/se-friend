@@ -1,6 +1,6 @@
 ## What is this?
 
-A ChatGPT-generated chrome extension that remembers key/value pairs for query parameters used in the Sentry SE team's demo.
+A ChatGPT-generated chrome extension that remembers key/value pairs for query parameters used in the Sentry SE team's [demo app](https://application-monitoring-react-dot-sales-engineering-sf.appspot.com/).
 
 ### Before
 ![Screenshot 2024-01-26 at 2 33 09 PM](https://github.com/cstavitsky/se-friend/assets/12092849/52929c42-009a-410f-8b59-2e1f95d43f7b)
@@ -23,7 +23,7 @@ $ npm run build
 2. Enable “Developer mode”
 3. Click “Load unpacked” and select the build folder of your React app
 4. Pin the extension to your toolbar
-5. Navigate to the demo app
+5. Navigate to the [demo app](https://application-monitoring-react-dot-sales-engineering-sf.appspot.com/)
 6. Click the extension icon in your toolbar and select whatever values
 
 ## Why?
