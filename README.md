@@ -1,7 +1,12 @@
 ## What is this?
 
-I wanted to see if we could automate some simple minor tasks for the SE team that are annoying but not problematic enough to spend significant resources on. For example, it would be nice for no SE to have to remember the key/value pairs of query parameters to pass in during a demo.
+A ChatGPT-generated chrome extension that remembers key/value pairs for query parameters used in the Sentry SE team's demo.
 
+## Why?
+
+I wanted to see if we could automate some simple minor tasks for the SE team that are annoying but not problematic enough to spend significant resources on. For example, it would be nice for no SE to have to remember all the correct key/value pairs of query parameters to pass in during a demo -- you should be able to select options visually.
+
+## How?
 I generated this chrome extension scaffolding with ChatGPT, and then made some changes myself. The original prompt was:
 
 >Write a chrome extension using react for the ui component. The extension should modify the url in a browser and, if a text field labeled "SE" is filled in with a string,  append a query parameter to the URL with key 'se' and value equal to that string.
