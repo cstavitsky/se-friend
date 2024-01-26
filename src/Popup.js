@@ -6,9 +6,15 @@ const EMPOWER_PLANT_URL =
   "https://application-monitoring-react-dot-sales-engineering-sf.appspot.com/";
 
 const Popup = () => {
-  const [salesEngineer, setSalesEngineer] = useState("");
-  const [slowdownOption, setSlowdownOption] = useState(false);
-  const [backendOption, setBackendOption] = useState("flask");
+  const [salesEngineer, setSalesEngineer] = useState(
+    localStorage.getItem("salesEngineer") || ""
+  );
+  const [slowdownOption, setSlowdownOption] = useState(
+    localStorage.getItem("slowdownOption") || false
+  );
+  const [backendOption, setBackendOption] = useState(
+    localStorage.getItem("backendOption") || "flask"
+  );
 
   const updateUrl = (tabId) => {
     chrome.tabs.sendMessage(tabId, {
@@ -26,6 +32,19 @@ const Popup = () => {
       if (url.includes(EMPOWER_PLANT_URL)) updateUrl(tabId);
     });
   }, [salesEngineer, slowdownOption, backendOption]);
+
+  // Update localStorage when state changes
+  useEffect(() => {
+    localStorage.setItem("salesEngineer", salesEngineer);
+  }, [salesEngineer]);
+
+  useEffect(() => {
+    localStorage.setItem("slowdownOption", slowdownOption);
+  }, [slowdownOption]);
+
+  useEffect(() => {
+    localStorage.setItem("backendOption", backendOption);
+  }, [backendOption]);
 
   return (
     <div className="popup-container">
