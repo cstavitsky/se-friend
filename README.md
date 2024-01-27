@@ -4,7 +4,11 @@ A ChatGPT-generated chrome extension that remembers key/value pairs for query pa
 
 ## Why?
 
-I wanted to see if we could automate some simple minor tasks for the SE team that are annoying but not problematic enough to spend significant resources on. For example, it would be nice for no SE to have to remember all the correct key/value pairs of query parameters to pass in during a demo -- you should be able to select options visually.
+I wanted to see if we could use AI to automate some simple minor tasks for the SE team that are annoying but not problematic enough to spend significant time on. 
+
+For example, it would be nice for no SE to have to remember all the correct key/value pairs of query parameters to pass in during a demo -- you should be able to select options visually. It's a nice thing that makes life easier for existing and new SEs. But also, it's not really worth it for one of us to spend the time coding this manually.
+
+There are probably lots of little automations similar to this that we can leverage AI for on the team... what can you think of?
 
 ### Before
 ![Screenshot 2024-01-26 at 2 33 09 PM](https://github.com/cstavitsky/se-friend/assets/12092849/52929c42-009a-410f-8b59-2e1f95d43f7b)
