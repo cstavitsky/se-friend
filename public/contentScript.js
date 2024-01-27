@@ -19,5 +19,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     }
 
     window.history.replaceState({}, "", newUrl.toString());
+    window.location.reload();
   }
 });
