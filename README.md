@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+## What is this?
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A ChatGPT-generated chrome extension that remembers key/value pairs for query parameters used in the Sentry SE team's [demo app](https://application-monitoring-react-dot-sales-engineering-sf.appspot.com/).
 
-## Available Scripts
+## Why?
 
-In the project directory, you can run:
+I wanted to see if we could use AI to automate some simple minor tasks for the SE team that are annoying but not problematic enough to spend significant time on. 
 
-### `npm start`
+For example, it would be nice for no SE to have to remember all the correct key/value pairs of query parameters to pass in during a demo -- you should be able to select options visually. It's a nice thing that makes life easier for existing and new SEs. But also, it's not really worth it for one of us to spend the time coding this manually.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+There are probably lots of little automations similar to this that we can leverage AI for on the team... what can you think of?
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Before
+![Screenshot 2024-01-26 at 2 33 09 PM](https://github.com/cstavitsky/se-friend/assets/12092849/52929c42-009a-410f-8b59-2e1f95d43f7b)
 
-### `npm test`
+### After
+Clicking the popup will trigger the javascript and cause the URL to be updated with the stored query parameter values.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Screenshot 2024-01-26 at 2 33 26 PM](https://github.com/cstavitsky/se-friend/assets/12092849/5c8ffdc8-3fe7-4f28-8986-ad201c48c06d)
 
-### `npm run build`
+## Running it Locally
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+clone repo, and `cd` into it
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+$ npm install react-scripts
+$ npm run build
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Open Chrome and navigate to chrome://extensions/
+2. Enable “Developer mode”
+3. Click “Load unpacked” and select the build folder of your React app
+4. Pin the extension to your toolbar
+5. Navigate to the [demo app](https://application-monitoring-react-dot-sales-engineering-sf.appspot.com/)
+6. Click the extension icon in your toolbar and select whatever values
 
-### `npm run eject`
+## How?
+I generated this chrome extension scaffolding with ChatGPT, and then made some changes myself. The original prompt was:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+>Write a chrome extension using react for the ui component. The extension should modify the url in a browser and, if a text field labeled "SE" is filled in with a string,  append a query parameter to the URL with key 'se' and value equal to that string.
+>There should also be a set of radio buttons available; if the first radio button, labeled "FE+BE slowdown" is selected, do nothing. If the second radio button, labeled "Frontend Only Slowdown" is selected, append a query parameter to the URL with key "frontendSlowdown" and value "true".
+>There should also be another set of radio buttons available.  For each of the following, add a radio button: ['flask', 'express', 'springboot', 'aspnetcore', 'laravel', 'ruby', 'rails']. If that radio button is selected, add a query parameter to the url where key is "backend" and value is the value of the radio button.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+I had to prompt it to work with localstorage:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+>Instead of clicking a button to update the URL, please have the Popup component store the value from each setting (any text fields, radio buttons, checkboxes) in localstorage and applied automatically to each url when the page loads.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+There might have been some minor tweaks I made manually.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
